@@ -19,7 +19,7 @@ Rerun_Program = input()
 
 if Rerun_Program == "1":
     os.chdir(program_location)
-    os.system('cmd /c py -3 THPconv.py')
+    os.system('cmd /c py -3 THP2MP4.py')
 elif Rerun_Program == "2":
     exit()
 else:
