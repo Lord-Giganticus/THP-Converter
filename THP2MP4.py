@@ -8,7 +8,7 @@ print(os.getcwd())
 input("If this is not the correct folder I swear...")
 
 THP_Conv = open('THPconv.bat', 'w')
-THP_Conv.write('for %%a in ("*.*") do ffmpeg -i "%%a" "%%~na.mp4"')
+THP_Conv.write('for %%a in ("*.thp") do ffmpeg -i "%%a" "%%~na.mp4"')
 THP_Conv.close()
 
 os.system('cmd /c THPconv.bat')
