@@ -8,3 +8,6 @@ Refer to [CONTRIBUTING.md](https://github.com/Lord-Giganticus/THP-Conveter/blob/
 
 # Known issues:
 THPconv.exe has this odd frame glitch when putting audio into it. [#1](https://github.com/Lord-Giganticus/THP-Conveter/issues/1)
+
+# To add issues:
+Refer to this [template.](https://github.com/Lord-Giganticus/THP-Conveter/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
