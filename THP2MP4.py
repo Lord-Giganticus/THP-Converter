@@ -7,6 +7,11 @@ os.chdir(THP_Location)
 print(os.getcwd())
 input("If this is not the correct folder I swear...")
 
+for name in os.listdir('.'):
+    if name.endswith('.thp') == False:
+        input("There are no thp files here! Press enter to exit and next time choose the right folder.")
+        exit()
+
 THP_Conv = open('THPconv.bat', 'w')
 THP_Conv.write('for %%a in ("*.thp") do ffmpeg -i "%%a" "%%~na.mp4"')
 THP_Conv.close()
