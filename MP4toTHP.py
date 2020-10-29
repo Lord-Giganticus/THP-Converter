@@ -7,6 +7,11 @@ os.chdir(MP4_Location)
 print(os.getcwd())
 input("If this is not the correct folder I swear...")
 
+for name in os.listdir('.'):
+    if name.endswith('.mp4') == False:
+        input("There are no mp4 files here! Press enter to exit and next time choose the right folder.")
+        exit()
+
 print("Not all THP videos have audio. Do you wish to have audio for yours? Then type the corresponding number to your choice.\n[1] Yes\n[2] No")
 Audio = input("")
 
