@@ -6,6 +6,7 @@ import shutil
 program_location = os.getcwd()
 
 os.mkdir('nonmp4')
+os.mkdir('thp_output')
 
 mp4_files = 0
 mp4_files2 = 0
@@ -54,7 +55,7 @@ if Audio == "1":
     os.system('cmd /c wavconv.bat')
     os.system('cmd /c MP4toTHP.bat')
     os.system('cmd /c ffmpeg -i input.mp4 -r 30 frame%03d.jpg')
-    os.system('cmd /c thpconv -j *.jpg -s input.wav -d output.thp')
+    os.system('cmd /c thpconv -j *.jpg -s input.wav -d thp_output/output.thp')
     os.system('cmd /c del /f *.bat')
     os.system('cmd /c del /f *.wav')
     os.system('cmd /c del /f *.jpg')
