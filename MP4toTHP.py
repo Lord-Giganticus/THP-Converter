@@ -20,6 +20,7 @@ def returnnonmp4():
         if file.endswith('.mp4') == False:
             shutil.move(file, MP4_Location)
     os.chdir(MP4_Location)
+    shutil.rmtree('nonmp4')
 for name in os.listdir(os.getcwd()):
     if os.path.isfile(name) == True:
         if name.endswith('.mp4') == False:
