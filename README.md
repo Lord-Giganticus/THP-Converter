@@ -1,5 +1,6 @@
 # THP-Conveter
 * ![Python application](https://github.com/Lord-Giganticus/THP-Conveter/workflows/Python%20application/badge.svg)
+* ![CodeQL](https://github.com/Lord-Giganticus/THP-Conveter/workflows/CodeQL/badge.svg)
 
 Python scripts to convert folders with wii/gc era thp videos into mp4 files and vice versa.
 I hadn't really seen any good coverters for this file type so I wrote one.
