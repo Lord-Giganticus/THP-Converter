@@ -8,7 +8,7 @@ I hadn't really seen any good coverters for this file type so I wrote one.
 # Requirements:
 - Python 3.x (Preferably 3.7 and above.)
 - FFMPEG installed to PATH. [Latest Windows Binary Release](https://github.com/GyanD/codexffmpeg/releases) [How to install to PATH](https://blog.gregzaal.com/how-to-install-ffmpeg-on-windows/)
-- `THPConv.exe` installed to PATH and `dsptool.dll` in the same folder as `THPConv.exe`. **Due to both files being property of Nintendo, I can not provide the links to these.
+- `THPConv.exe` installed to PATH and `dsptool.dll` in the same folder as `THPConv.exe`. **Due to both files being property of Nintendo, I can not provide the links to these.**
 
 # Conributing:
 Refer to [CONTRIBUTING.md](https://github.com/Lord-Giganticus/THP-Conveter/blob/master/CONTRIBUTING.md) for info.
