@@ -1,3 +1,5 @@
 /THP
 *.exe
 *.dll
+/.vs
+/.vscode
