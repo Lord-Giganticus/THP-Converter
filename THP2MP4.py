@@ -19,4 +19,4 @@ else:
 os.chdir(folder)
 
 os.system('cmd /c ffmpeg -i "'+file+'" "'+name+'.mp4"')
-print("C")
+print("Complete.")
