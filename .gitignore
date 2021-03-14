@@ -5,3 +5,5 @@
 /.vscode
 *.mp4
 *.thp
+/THP-Converter-CS/obj
+/THP-Converter-CS/bin

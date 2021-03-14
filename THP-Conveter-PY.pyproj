@@ -14,6 +14,7 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>Global|PythonCore|3.9</InterpreterId>
     <TestFramework>Pytest</TestFramework>
+    <Name>THP-Conveter-PY</Name>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -21,13 +22,13 @@
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="THP_Converter\MP4toTHP.py">
+    <Compile Include="THP_Converter_PY\MP4toTHP.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="THP_Converter\THPtoMP4.py">
+    <Compile Include="THP_Converter_PY\THPtoMP4.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="THP_Converter\__init__.py">
+    <Compile Include="THP_Converter_PY\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -35,7 +36,7 @@
     <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="THP_Converter\" />
+    <Folder Include="THP_Converter_PY\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
