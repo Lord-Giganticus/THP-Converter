@@ -6,6 +6,10 @@ def main():
     args = parser.parse_args()
     file = args.infile
     out_file = args.outfile
+    if os.path.isfile(file) == False:
+        raise FileNotFoundError
+    if os.path.isfile(out_file) == True:
+        raise FileExistsError
     os.system('cmd /c ffmpeg -i "'+file+'" "'+out_file+'"')
     print("Complete.")
     return
