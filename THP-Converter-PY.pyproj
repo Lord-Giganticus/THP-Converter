@@ -14,7 +14,7 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>Global|PythonCore|3.9</InterpreterId>
     <TestFramework>Pytest</TestFramework>
-    <Name>THP-Conveter-PY</Name>
+    <Name>THP-Converter-PY</Name>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
