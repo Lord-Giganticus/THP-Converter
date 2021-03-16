@@ -14,6 +14,8 @@ namespace THP_Conveter_CS
         [STAThread]
         static void Main()
         {
+            Properties.Settings.Default.thp_video = "";
+            Properties.Settings.Default.Save();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

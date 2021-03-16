@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "THP-Converter-PY", "THP-Converter-PY.pyproj", "{9CCCD18E-DA88-4778-801E-2E128BEBE0F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THP-Conveter-CS", "THP-Conveter-CS\THP-Conveter-CS.csproj", "{AB1E19C4-2EA1-4930-93EA-F59E2667045E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THP-Converter-CS", "THP-Conveter-CS\THP-Converter-CS.csproj", "{AB1E19C4-2EA1-4930-93EA-F59E2667045E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,7 +15,18 @@ namespace THP_Conveter_CS
         public Main()
         {
             InitializeComponent();
+            
+        }
+        private void AboutMenu_Click(object sender, EventArgs e)
+        {
+            GUI.AboutBox aboutBox = new GUI.AboutBox();
+            aboutBox.ShowDialog();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GUI.THP THP = new GUI.THP();
+            THP.ShowDialog();
+        }
     }
 }
