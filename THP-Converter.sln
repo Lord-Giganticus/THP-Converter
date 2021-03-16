@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "THP-Converter-PY", "THP-Converter-PY.pyproj", "{9CCCD18E-DA88-4778-801E-2E128BEBE0F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "THP-Converter-CS", "THP-Conveter-CS\THP-Converter-CS.csproj", "{1DBD5DE2-50B2-48A3-B6DF-A930D75E84DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THP-Conveter-CS", "THP-Conveter-CS\THP-Conveter-CS.csproj", "{AB1E19C4-2EA1-4930-93EA-F59E2667045E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9CCCD18E-DA88-4778-801E-2E128BEBE0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CCCD18E-DA88-4778-801E-2E128BEBE0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DBD5DE2-50B2-48A3-B6DF-A930D75E84DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DBD5DE2-50B2-48A3-B6DF-A930D75E84DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DBD5DE2-50B2-48A3-B6DF-A930D75E84DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DBD5DE2-50B2-48A3-B6DF-A930D75E84DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB1E19C4-2EA1-4930-93EA-F59E2667045E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1E19C4-2EA1-4930-93EA-F59E2667045E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1E19C4-2EA1-4930-93EA-F59E2667045E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1E19C4-2EA1-4930-93EA-F59E2667045E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
