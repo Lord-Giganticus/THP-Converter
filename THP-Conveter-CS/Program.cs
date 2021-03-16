@@ -37,7 +37,7 @@ namespace THP_Converter_CS
         }
         static void ShowHelp(OptionSet p)
         {
-            Console.WriteLine("Usage: THP-Conveter [OPTIONS]");
+            Console.WriteLine("Usage: THP-Converter [OPTIONS]");
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
         }
