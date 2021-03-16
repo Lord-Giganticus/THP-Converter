@@ -46,5 +46,29 @@ namespace THP_Conveter_CS.Properties {
                 this["ffmpeg_path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string mp4_video {
+            get {
+                return ((string)(this["mp4_video"]));
+            }
+            set {
+                this["mp4_video"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("29.97")]
+        public decimal frame_rate {
+            get {
+                return ((decimal)(this["frame_rate"]));
+            }
+            set {
+                this["frame_rate"] = value;
+            }
+        }
     }
 }
