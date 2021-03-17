@@ -1,8 +1,8 @@
 ; The name of the installer
-Name "THP-Converter-CS"
+Name "THP-Converter-PY"
 
 ; The file to write
-OutFile "THP-Converter-CS.exe"
+OutFile "THP-Converter-PY.exe"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel user
