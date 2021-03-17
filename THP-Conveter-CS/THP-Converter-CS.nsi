@@ -1,8 +1,8 @@
 ; The name of the installer
-Name "THP-Converter"
+Name "THP-Converter-CS"
 
 ; The file to write
-OutFile "THP-Converter.exe"
+OutFile "THP-Converter-CS.exe"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel user
@@ -11,7 +11,7 @@ RequestExecutionLevel user
 Unicode True
 
 ; The default installation directory
-InstallDir "$DESKTOP\THP-Converter"
+InstallDir "$DESKTOP\THP-Converter\CS"
 
 ;--------------------------------
 

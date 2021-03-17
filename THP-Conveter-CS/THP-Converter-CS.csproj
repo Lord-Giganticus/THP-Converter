@@ -40,7 +40,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Update="THP-Converter.nsi">
+    <None Update="THP-Converter-CS.nsi">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="THPConv.exe">
