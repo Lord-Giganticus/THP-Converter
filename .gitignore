@@ -341,3 +341,8 @@ healthchecksdb
 *.mp4
 /THP-Conveter-CS/THPConv.exe
 /THP-Conveter-CS/dsptool.dll
+/THP_Converter_PY/THPConv.exe
+/THP_Converter_PY/dsptool.dll
+dist/
+build/
+*.spec
