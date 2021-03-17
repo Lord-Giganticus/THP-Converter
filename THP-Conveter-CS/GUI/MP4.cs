@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-using FFmpeg.NET;
+using System.Diagnostics;
 
 namespace THP_Conveter_CS.GUI
 {
@@ -83,6 +83,58 @@ namespace THP_Conveter_CS.GUI
                     Properties.Settings.Default.Save();
                 }
             }
+            var ffmpeg_path = Properties.Settings.Default.ffmpeg_path;
+            Environment.CurrentDirectory = Path.GetFullPath(ffmpeg_path);
+            using (Process process = new Process())
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "cmd.exe",
+                    Arguments = "/c copy " + inputFile + " %CD%/input"
+                };
+                process.StartInfo = startInfo;
+                process.Start();
+                process.WaitForExit();
+                startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "cmd.exe",
+                    Arguments = "/c ffmpeg -i input/"+ Path.GetFileName(inputFile) + " -r "+rate+ " %CD%/input/frame%03d.jpg"
+                };
+                process.StartInfo = startInfo;
+                process.Start();
+                process.WaitForExit();
+            }
+            Directory.SetCurrentDirectory("input");
+            File.Delete(Path.GetFileName(inputFile));
+            Classes.Copier.DirectoryCopy(Directory.GetCurrentDirectory(),Classes.Copier.AssemblyDirectory,false);
+            Directory.SetCurrentDirectory(Environment.CurrentDirectory);
+            Directory.Delete("input");
+            Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
+            Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
+            using (Process process = new Process())
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "cmd.exe",
+                    Arguments = "cmd /c thpconv -j *.jpg -r"+ rate +" -d "+outfile
+                };
+                process.StartInfo = startInfo;
+                process.Start();
+                process.WaitForExit();
+                startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "cmd.exe",
+                    Arguments = "/c del /f *.jpg"
+                };
+                process.StartInfo = startInfo;
+                process.Start();
+                process.WaitForExit();
+            }
+            MessageBox.Show("Complete!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
