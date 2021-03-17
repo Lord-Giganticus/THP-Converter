@@ -62,9 +62,9 @@ namespace THP_Conveter_CS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("29.97")]
-        public decimal frame_rate {
+        public string frame_rate {
             get {
-                return ((decimal)(this["frame_rate"]));
+                return ((string)(this["frame_rate"]));
             }
             set {
                 this["frame_rate"] = value;

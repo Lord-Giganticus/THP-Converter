@@ -11,7 +11,7 @@
     <Setting Name="mp4_video" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="frame_rate" Type="System.Decimal" Scope="User">
+    <Setting Name="frame_rate" Type="System.String" Scope="User">
       <Value Profile="(Default)">29.97</Value>
     </Setting>
   </Settings>

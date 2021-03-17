@@ -45,15 +45,10 @@ namespace THP_Conveter_CS.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            decimal rate = Properties.Settings.Default.frame_rate;
-            string fr = "";
+            string rate = Properties.Settings.Default.frame_rate;
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                rate = decimal.Parse(textBox1.Text);
-                fr = rate.ToString();
-            } else
-            {
-                fr = rate.ToString();
+                rate = textBox1.Text;
             }
             SaveFileDialog save = new SaveFileDialog
             {
@@ -68,7 +63,7 @@ namespace THP_Conveter_CS.GUI
             {
                 outfile = save.FileName;
             }
-            var inputFile = Properties.Settings.Default.mp4_video;
+            string inputFile = Properties.Settings.Default.mp4_video;
             if (!File.Exists(Properties.Settings.Default.ffmpeg_path))
             {
                 OpenFileDialog open = new OpenFileDialog
