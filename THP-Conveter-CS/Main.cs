@@ -28,5 +28,11 @@ namespace THP_Conveter_CS
             GUI.THP THP = new GUI.THP();
             THP.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GUI.MP4 MP4 = new GUI.MP4();
+            MP4.ShowDialog();
+        }
     }
 }

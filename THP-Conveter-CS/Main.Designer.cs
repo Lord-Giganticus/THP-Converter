@@ -83,6 +83,7 @@ namespace THP_Conveter_CS
             this.button2.TabIndex = 3;
             this.button2.Text = "MP4 video";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Main
             // 
