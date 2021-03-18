@@ -47,10 +47,11 @@ namespace THP_Conveter_CS.GUI
             SaveFileDialog save = new SaveFileDialog
             {
                 Filter = "mp4 file (*.mp4)|*.mp4|All files (*.*)|*.*",
-                FilterIndex = 2,
+                FilterIndex = 1,
                 RestoreDirectory = true,
                 InitialDirectory = Directory.GetCurrentDirectory(),
-                Title = "Save the new mp4 file."
+                Title = "Save the new mp4 file.",
+                FileName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.thp_video)
             };
             string outfile = "";
             if (save.ShowDialog() == DialogResult.OK)

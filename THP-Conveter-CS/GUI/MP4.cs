@@ -27,7 +27,7 @@ namespace THP_Conveter_CS.GUI
             OpenFileDialog open = new OpenFileDialog
             {
                 Title = "Search for a mp4 file",
-                Filter = "mp4 file (*.mp4)|.mp4|All files (*.*)|*.*",
+                Filter = "mp4 file (*.mp4)|*.mp4|All files (*.*)|*.*",
                 FilterIndex = 1,
                 InitialDirectory = Directory.GetCurrentDirectory(),
                 Multiselect = false
@@ -49,20 +49,37 @@ namespace THP_Conveter_CS.GUI
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 rate = textBox1.Text;
+                double rate1 = double.Parse(rate);
+                if (rate1 < 1.0)
+                {
+                    rate = "1.0";
+                } else if (rate1 > 59.94)
+                {
+                    rate = "59.94";
+                }
             }
             SaveFileDialog save = new SaveFileDialog
             {
                 Filter = "thp file (*.thp)|*.thp|All files (*.*)|*.*",
-                FilterIndex = 2,
+                FilterIndex = 1,
                 RestoreDirectory = true,
                 InitialDirectory = Directory.GetCurrentDirectory(),
-                Title = "Save the new thp file."
+                Title = "Save the new thp file.",
+                FileName = Path.GetFileNameWithoutExtension(Properties.Settings.Default.mp4_video)
             };
             string outfile = "";
             if (save.ShowDialog() == DialogResult.OK)
             {
                 outfile = save.FileName;
             }
+            string[] lines =
+            {
+                ""
+            };
+            File.WriteAllLines(outfile,lines);
+            var name = Path.GetFileName(outfile);
+            File.Delete(outfile);
+            MessageBox.Show(name);
             string inputFile = Properties.Settings.Default.mp4_video;
             if (!File.Exists(Properties.Settings.Default.ffmpeg_path))
             {
@@ -84,57 +101,55 @@ namespace THP_Conveter_CS.GUI
                 }
             }
             var ffmpeg_path = Properties.Settings.Default.ffmpeg_path;
-            Environment.CurrentDirectory = Path.GetFullPath(ffmpeg_path);
             using (Process process = new Process())
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = "/c copy " + inputFile + " %CD%/input"
-                };
-                process.StartInfo = startInfo;
-                process.Start();
-                process.WaitForExit();
-                startInfo = new ProcessStartInfo
-                {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = "cmd.exe",
-                    Arguments = "/c ffmpeg -i input/"+ Path.GetFileName(inputFile) + " -r "+rate+ " %CD%/input/frame%03d.jpg"
+                    Arguments = "/c "+ffmpeg_path+" -i " + inputFile + " -r " + rate + " frame%03d.jpg"
                 };
                 process.StartInfo = startInfo;
                 process.Start();
                 process.WaitForExit();
             }
-            Directory.SetCurrentDirectory("input");
-            File.Delete(Path.GetFileName(inputFile));
-            Classes.Copier.DirectoryCopy(Directory.GetCurrentDirectory(),Classes.Copier.AssemblyDirectory,false);
-            Directory.SetCurrentDirectory(Environment.CurrentDirectory);
-            Directory.Delete("input");
             Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
+            
             Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
             using (Process process = new Process())
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = "cmd /c thpconv -j *.jpg -r"+ rate +" -d "+outfile
-                };
-                process.StartInfo = startInfo;
-                process.Start();
-                process.WaitForExit();
-                startInfo = new ProcessStartInfo
-                {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = "cmd.exe",
-                    Arguments = "/c del /f *.jpg"
+                    Arguments = "/c thpconv -j *.jpg -r " + rate + " -d "+outfile
                 };
                 process.StartInfo = startInfo;
                 process.Start();
                 process.WaitForExit();
             }
+            DirectoryInfo di = new DirectoryInfo(Classes.Copier.AssemblyDirectory);
+            FileInfo[] files = di.GetFiles("*.jpg").Where(p => p.Extension == ".jpg").ToArray();
+            foreach (FileInfo file in files)
+                try
+                {
+                    file.Attributes = FileAttributes.Normal;
+                    File.Delete(file.FullName);
+                }
+                catch
+                {
+                    throw new IOException();
+                }
             MessageBox.Show("Complete!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            label1.Hide();
+            textBox1.Hide();
+            button2.Hide();
+            return;
         }
     }
 }
