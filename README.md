@@ -6,7 +6,7 @@ Python scripts to convert folders with wii/gc era thp videos into mp4 files and 
 I hadn't really seen any good coverters for this file type so I wrote one.
 
 # Requirements:
-- Python 3.x (Preferably 3.7 and above), .NET 5.0 runtime. [(link to runtime)](https://dotnet.microsoft.com/download/dotnet/5.0/runtime)
+- Python 3.x (Preferably 3.7 and above), .NET 5.0 runtime [(link to runtime)](https://dotnet.microsoft.com/download/dotnet/5.0/runtime)
 - FFMPEG installed to PATH. [Latest Windows Binary Release](https://github.com/GyanD/codexffmpeg/releases) [How to install to PATH](https://blog.gregzaal.com/how-to-install-ffmpeg-on-windows/)
 - `THPConv.exe` and `dsptool.dll` in the same folder as `THPConv.exe`. **Due to both files being part of the RVL SDK (Wii SDK), I can not provide the links to these.** ~~May or may not be in the resources for the C# program and required to be in the folder for building~~ ;)
 # Conributing:
