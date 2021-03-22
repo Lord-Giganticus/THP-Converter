@@ -39,9 +39,7 @@
     <Folder Include="THP_Converter_PY\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="THP_Converter_PY\dsptool.dll" />
     <Content Include="THP_Converter_PY\THP-Converter-PY.nsi" />
-    <Content Include="THP_Converter_PY\THPConv.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

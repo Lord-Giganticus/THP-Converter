@@ -27,8 +27,6 @@ Section "" ;No components page, name is not important
   SetOutPath $INSTDIR
   
   ; Put file there
-  File "THPConv.exe"
-  File "dsptool.dll"
   File "dist\mp4tothp.exe"
   File "dist\thptomp4.exe"
   
