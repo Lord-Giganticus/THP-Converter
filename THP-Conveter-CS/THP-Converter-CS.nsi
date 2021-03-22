@@ -27,8 +27,6 @@ Section "" ;No components page, name is not important
   SetOutPath $INSTDIR
   
   ; Put file there
-  File "THPConv.exe"
-  File "dsptool.dll"
   File "THP-Converter-CS.exe"
   
 SectionEnd ; end the section

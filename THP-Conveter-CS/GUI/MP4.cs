@@ -72,6 +72,10 @@ namespace THP_Conveter_CS.GUI
             {
                 outfile = save.FileName;
             }
+            else if (save.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
             string[] lines =
             {
                 ""
@@ -119,6 +123,9 @@ namespace THP_Conveter_CS.GUI
             Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
             
             Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
+            Classes.Manager manager = new Classes.Manager();
+            manager.ExtractTHPConv("THPConv.exe");
+            manager.Extractdsptool("dsptool.dll");
             using (Process process = new Process())
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
@@ -145,6 +152,8 @@ namespace THP_Conveter_CS.GUI
                 {
                     throw new IOException();
                 }
+            File.Delete("THPConv.exe");
+            File.Delete("dsptool.dll");
             MessageBox.Show("Complete!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
             label1.Hide();
             textBox1.Hide();

@@ -59,5 +59,25 @@ namespace THP_Conveter_CS.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] dsptool {
+            get {
+                object obj = ResourceManager.GetObject("dsptool", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] THPConv {
+            get {
+                object obj = ResourceManager.GetObject("THPConv", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
