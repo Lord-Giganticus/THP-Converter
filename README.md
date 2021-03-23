@@ -3,7 +3,7 @@
 * ![CodeQL](https://github.com/Lord-Giganticus/THP-Conveter/workflows/CodeQL/badge.svg)
 
 Python scripts to convert folders with wii/gc era thp videos into mp4 files and vice versa.
-I hadn't really seen any good coverters for this file type so I wrote one.
+I haven't seen any good coverters for this file type so I wrote one.
 
 # Requirements:
 - Python 3.x (Preferably 3.7 and above), .NET 5.0 runtime [(link to runtime)](https://dotnet.microsoft.com/download/dotnet/5.0/runtime)
