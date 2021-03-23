@@ -83,7 +83,6 @@ namespace THP_Conveter_CS.GUI
             File.WriteAllLines(outfile,lines);
             var name = Path.GetFileName(outfile);
             File.Delete(outfile);
-            MessageBox.Show(name);
             string inputFile = Properties.Settings.Default.mp4_video;
             if (!File.Exists(Properties.Settings.Default.ffmpeg_path))
             {
@@ -124,8 +123,8 @@ namespace THP_Conveter_CS.GUI
             
             Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
             Classes.Manager manager = new Classes.Manager();
-            manager.ExtractTHPConv("THPConv.exe");
-            manager.Extractdsptool("dsptool.dll");
+            manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
+            manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
             using (Process process = new Process())
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
