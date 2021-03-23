@@ -37,7 +37,7 @@ namespace THP_Conveter_CS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\ProgramData\\chocolatey\\bin\\ffmpeg.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("ffmpeg.exe")]
         public string ffmpeg_path {
             get {
                 return ((string)(this["ffmpeg_path"]));

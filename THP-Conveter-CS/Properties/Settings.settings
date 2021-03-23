@@ -6,7 +6,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ffmpeg_path" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\ProgramData\chocolatey\bin\ffmpeg.exe</Value>
+      <Value Profile="(Default)">ffmpeg.exe</Value>
     </Setting>
     <Setting Name="mp4_video" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

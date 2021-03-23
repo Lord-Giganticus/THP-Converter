@@ -17,6 +17,8 @@ namespace THP_Conveter_CS
             Properties.Settings.Default.thp_video = "";
             Properties.Settings.Default.mp4_video = "";
             Properties.Settings.Default.Save();
+            Classes.Manager manager = new Classes.Manager();
+            manager.ExtractResource("ffmpeg.exe",Properties.Resources.ffmpeg);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

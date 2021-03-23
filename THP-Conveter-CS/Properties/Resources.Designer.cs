@@ -73,6 +73,16 @@ namespace THP_Conveter_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ffmpeg {
+            get {
+                object obj = ResourceManager.GetObject("ffmpeg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] THPConv {
             get {
                 object obj = ResourceManager.GetObject("THPConv", resourceCulture);
