@@ -14,6 +14,8 @@ namespace THP_Conveter_CS.GUI
 {
     public partial class THP : Form
     {
+        private static event Notify Complete;
+
         public THP()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace THP_Conveter_CS.GUI
 
         private async void button2_Click(object sender, EventArgs e)
         {
+            Complete += THP_Complete;
             SaveFileDialog save = new SaveFileDialog
             {
                 Filter = "mp4 file (*.mp4)|*.mp4|All files (*.*)|*.*",
@@ -80,9 +83,16 @@ namespace THP_Conveter_CS.GUI
             }
             var ffmpeg = new Engine(Properties.Settings.Default.ffmpeg_path);
             await ffmpeg.ConvertAsync(inputFile, outFile);
-            MessageBox.Show("Complete!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            Complete?.Invoke();
             button2.Hide();
             return;
         }
+
+        private void THP_Complete()
+        {
+            MessageBox.Show("Complete!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private delegate void Notify();
     }
 }

@@ -14,6 +14,8 @@ namespace THP_Conveter_CS.GUI
 {
     public partial class MP4 : Form
     {
+        private static event Notify Complete;
+
         public MP4()
         {
             InitializeComponent();
@@ -45,6 +47,7 @@ namespace THP_Conveter_CS.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Complete += MP4_Complete;
             string rate = Properties.Settings.Default.frame_rate;
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -120,7 +123,6 @@ namespace THP_Conveter_CS.GUI
                 process.WaitForExit();
             }
             Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
-            
             Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
             Classes.Manager manager = new Classes.Manager();
             manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
@@ -153,11 +155,18 @@ namespace THP_Conveter_CS.GUI
                 }
             File.Delete("THPConv.exe");
             File.Delete("dsptool.dll");
-            MessageBox.Show("Complete!","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            Complete?.Invoke();
             label1.Hide();
             textBox1.Hide();
             button2.Hide();
             return;
         }
+
+        private void MP4_Complete()
+        {
+            MessageBox.Show("Complete!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private delegate void Notify();
     }
 }
