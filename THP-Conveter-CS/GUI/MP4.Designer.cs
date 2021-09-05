@@ -33,11 +33,13 @@ namespace THP_Conveter_CS.GUI
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.VideoSizeComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(131, 130);
+            this.button1.Location = new System.Drawing.Point(126, 168);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 110);
             this.button1.TabIndex = 0;
@@ -47,7 +49,7 @@ namespace THP_Conveter_CS.GUI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(432, 130);
+            this.button2.Location = new System.Drawing.Point(427, 168);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(246, 110);
             this.button2.TabIndex = 1;
@@ -57,7 +59,7 @@ namespace THP_Conveter_CS.GUI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(470, 101);
+            this.textBox1.Location = new System.Drawing.Point(460, 139);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "29.97";
             this.textBox1.Size = new System.Drawing.Size(173, 23);
@@ -66,11 +68,42 @@ namespace THP_Conveter_CS.GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(473, 83);
+            this.label1.Location = new System.Drawing.Point(463, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "The frame rate of the thp video";
+            // 
+            // VideoSizeComboBox
+            // 
+            this.VideoSizeComboBox.FormattingEnabled = true;
+            this.VideoSizeComboBox.Items.AddRange(new object[] {
+            "336x528",
+            "672x752",
+            "496x240",
+            "496x384",
+            "352x256",
+            "496x224",
+            "512x512",
+            "672x736",
+            "400x576",
+            "256x192",
+            "608x464",
+            "512x192"});
+            this.VideoSizeComboBox.Location = new System.Drawing.Point(485, 95);
+            this.VideoSizeComboBox.Name = "VideoSizeComboBox";
+            this.VideoSizeComboBox.Size = new System.Drawing.Size(121, 23);
+            this.VideoSizeComboBox.TabIndex = 6;
+            this.VideoSizeComboBox.Text = "640x368";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(511, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Video Size";
             // 
             // MP4
             // 
@@ -78,6 +111,8 @@ namespace THP_Conveter_CS.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.VideoSizeComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -97,5 +132,7 @@ namespace THP_Conveter_CS.GUI
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox VideoSizeComboBox;
+        private System.Windows.Forms.Label label3;
     }
 }

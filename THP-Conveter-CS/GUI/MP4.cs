@@ -22,11 +22,13 @@ namespace THP_Conveter_CS.GUI
             label1.Hide();
             button2.Hide();
             textBox1.Hide();
+            label3.Hide();
+            VideoSizeComboBox.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog
+            OpenFileDialog open = new()
             {
                 Title = "Search for a mp4 file",
                 Filter = "mp4 file (*.mp4)|*.mp4|All files (*.*)|*.*",
@@ -41,6 +43,8 @@ namespace THP_Conveter_CS.GUI
                 label1.Show();
                 button2.Show();
                 textBox1.Show();
+                label3.Show();
+                VideoSizeComboBox.Show();
                 return;
             }
         }
@@ -61,7 +65,7 @@ namespace THP_Conveter_CS.GUI
                     rate = "59.94";
                 }
             }
-            SaveFileDialog save = new SaveFileDialog
+            SaveFileDialog save = new()
             {
                 Filter = "thp file (*.thp)|*.thp|All files (*.*)|*.*",
                 FilterIndex = 1,
@@ -83,82 +87,72 @@ namespace THP_Conveter_CS.GUI
             {
                 ""
             };
-            File.WriteAllLines(outfile,lines);
+            File.WriteAllLines(outfile, lines);
             var name = Path.GetFileName(outfile);
             File.Delete(outfile);
             string inputFile = Properties.Settings.Default.mp4_video;
-            if (!File.Exists(Properties.Settings.Default.ffmpeg_path))
-            {
-                OpenFileDialog open = new OpenFileDialog
-                {
-                    Title = "Locate ffmpeg.exe",
-                    Filter = "exe file (*.exe)|.exe|All files (*.*)|*.*",
-                    FilterIndex = 2,
-                    FileName = "ffmpeg.exe",
-                    RestoreDirectory = true,
-                    InitialDirectory = @"C:\Program Files (x86)",
-                    Multiselect = false
-                };
-                MessageBox.Show("The program cannot locate a valid ffmpeg install! Press OK to search for it.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    Properties.Settings.Default.ffmpeg_path = open.FileName;
-                    Properties.Settings.Default.Save();
-                }
-            }
-            var ffmpeg_path = Properties.Settings.Default.ffmpeg_path;
-            using (Process process = new Process())
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    CreateNoWindow = true,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = "cmd.exe",
-                    Arguments = "/c "+ffmpeg_path+" -i " + inputFile + " -r " + rate + " frame%03d.jpg"
-                };
-                process.StartInfo = startInfo;
-                process.Start();
-                process.WaitForExit();
-            }
-            Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
-            Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
-            Classes.Manager manager = new Classes.Manager();
+            File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
+            File.WriteAllBytes("mplayer.exe", Properties.Resources.mplayer);
+            Classes.Manager manager = new();
             manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
             manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
-            using (Process process = new Process())
+            string width = (((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text)[0..(((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text).IndexOf('x')],
+                height = (((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text)[(((string)VideoSizeComboBox.SelectedItem ?? VideoSizeComboBox.Text).IndexOf('x') + 1)..];
+            Directory.CreateDirectory("temp");
+            File.Copy(inputFile, "video.mp4");
+            using (Process process = new())
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo
+                ProcessStartInfo startInfo = new()
                 {
                     CreateNoWindow = true,
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = "/c thpconv -j *.jpg -r " + rate + " -d "+outfile
+                    Arguments = $"/c ffmpeg.exe -i video.mp4 -r {rate} -vf scale={width}:{height} temp\\frame%03d.jpg"
                 };
                 process.StartInfo = startInfo;
                 process.Start();
                 process.WaitForExit();
             }
-            DirectoryInfo di = new DirectoryInfo(Classes.Copier.AssemblyDirectory);
-            FileInfo[] files = di.GetFiles("*.jpg").Where(p => p.Extension == ".jpg").ToArray();
-            foreach (FileInfo file in files)
-                try
+            using (var process = new Process())
+            {
+                process.StartInfo = new ProcessStartInfo
                 {
-                    file.Attributes = FileAttributes.Normal;
-                    File.Delete(file.FullName);
-                }
-                catch
+                    FileName = "cmd.exe",
+                    Arguments = "/c mplayer.exe -ao pcm:file=temp.wav video.mp4"
+                };
+                process.Start();
+                process.WaitForExit();
+            }
+            using (var process = new Process())
+            {
+                process.StartInfo = new ProcessStartInfo
                 {
-                    throw new IOException();
-                }
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = "cmd.exe",
+                    Arguments = $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d {name}"
+                };
+                process.Start();
+                process.WaitForExit();
+            }
+            File.Move(name, outfile, true);
+            Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
+            Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
+            Directory.Delete("temp", true);
+            File.Delete("video.mp4");
+            File.Delete("temp.wav");
             File.Delete("THPConv.exe");
             File.Delete("dsptool.dll");
+            File.Delete("ffmpeg.exe");
+            File.Delete("mplayer.exe");
             Complete?.Invoke();
             label1.Hide();
             textBox1.Hide();
             button2.Hide();
+            label3.Hide();
+            VideoSizeComboBox.Hide();
             return;
         }
 

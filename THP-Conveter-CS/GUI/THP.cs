@@ -64,27 +64,13 @@ namespace THP_Conveter_CS.GUI
             var inputFile = new MediaFile(Properties.Settings.Default.thp_video);
             var outFile = new MediaFile(outfile);
             if (!File.Exists(Properties.Settings.Default.ffmpeg_path)) {
-                OpenFileDialog open = new OpenFileDialog
-                {
-                    Title = "Locate ffmpeg.exe",
-                    Filter = "exe file (*.exe)|.exe|All files (*.*)|*.*",
-                    FilterIndex = 2,
-                    FileName = "ffmpeg.exe",
-                    RestoreDirectory = true,
-                    InitialDirectory = @"C:\Program Files (x86)",
-                    Multiselect = false
-                };
-                MessageBox.Show("The program cannot locate a valid ffmpeg install! Press OK to search for it.","Warning!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                if (open.ShowDialog() == DialogResult.OK)
-                {
-                    Properties.Settings.Default.ffmpeg_path = open.FileName;
-                    Properties.Settings.Default.Save();
-                }
+                File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
             }
             var ffmpeg = new Engine(Properties.Settings.Default.ffmpeg_path);
             await ffmpeg.ConvertAsync(inputFile, outFile);
             Complete?.Invoke();
             button2.Hide();
+            File.Delete("ffmpeg.exe");
             return;
         }
 
