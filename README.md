@@ -13,8 +13,8 @@ I haven't seen any good coverters for this file type so I wrote one.
 Refer to [CONTRIBUTING.md](https://github.com/Lord-Giganticus/THP-Conveter/blob/master/CONTRIBUTING.md) for info.
 
 # Known issues:
-- `THPconv.exe` has this odd frame glitch when putting audio into it. [#1](https://github.com/Lord-Giganticus/THP-Conveter/issues/1)
-*This might never be fixed*
+- ~~`THPconv.exe` has this odd frame glitch when putting audio into it. [#1](https://github.com/Lord-Giganticus/THP-Conveter/issues/1)
+*This might never be fixed*~~ This has been finally fixed
 
 # To add issues:
 Refer to this [template.](https://github.com/Lord-Giganticus/THP-Conveter/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
