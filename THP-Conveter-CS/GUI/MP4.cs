@@ -23,8 +23,9 @@ namespace THP_Conveter_CS.GUI
             button2.Hide();
             textBox1.Hide();
             label3.Hide();
+            UseAudioCheckBox.Hide();
             VideoSizeComboBox.Hide();
-            VideoSizeComboBox.SelectedIndex = 1;
+            VideoSizeComboBox.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace THP_Conveter_CS.GUI
                 textBox1.Show();
                 label3.Show();
                 VideoSizeComboBox.Show();
+                UseAudioCheckBox.Show();
                 return;
             }
         }
@@ -89,7 +91,6 @@ namespace THP_Conveter_CS.GUI
                 ""
             };
             File.WriteAllLines(outfile, lines);
-            var name = Path.GetFileName(outfile);
             File.Delete(outfile);
             string inputFile = Properties.Settings.Default.mp4_video;
             File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
@@ -134,17 +135,18 @@ namespace THP_Conveter_CS.GUI
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = UseAudioCheckBox.Checked ? $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d {name}" : $"/c thpconv.exe -j temp/*.jpg -r {rate} -d {name}"
+                    Arguments = UseAudioCheckBox.Checked ? $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d output.thp" : $"/c thpconv.exe -j temp/*.jpg -r {rate} -d output.thp"
                 };
                 process.Start();
                 process.WaitForExit();
             }
-            File.Move(name, outfile, true);
+            File.Move("output.thp", outfile, true);
             Directory.SetCurrentDirectory(Classes.Copier.AssemblyDirectory);
             Environment.CurrentDirectory = Classes.Copier.AssemblyDirectory;
             Directory.Delete("temp", true);
             File.Delete("video.mp4");
-            File.Delete("temp.wav");
+            if (UseAudioCheckBox.Checked)
+                File.Delete("temp.wav");
             File.Delete("THPConv.exe");
             File.Delete("dsptool.dll");
             File.Delete("ffmpeg.exe");
@@ -155,6 +157,7 @@ namespace THP_Conveter_CS.GUI
             button2.Hide();
             label3.Hide();
             VideoSizeComboBox.Hide();
+            UseAudioCheckBox.Hide();
             return;
         }
 
