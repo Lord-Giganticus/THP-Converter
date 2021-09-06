@@ -46,7 +46,7 @@ namespace THP_Conveter_CS.Classes
         {
             get
             {
-                return new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName;
+                return new DirectoryInfo(AppContext.BaseDirectory).FullName;
             }
         }
     }

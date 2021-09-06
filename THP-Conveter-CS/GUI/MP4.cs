@@ -24,6 +24,7 @@ namespace THP_Conveter_CS.GUI
             textBox1.Hide();
             label3.Hide();
             VideoSizeComboBox.Hide();
+            VideoSizeComboBox.SelectedIndex = 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,8 +97,8 @@ namespace THP_Conveter_CS.GUI
             Classes.Manager manager = new();
             manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
             manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
-            string width = (((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text)[0..(((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text).IndexOf('x')],
-                height = (((string)VideoSizeComboBox.SelectedItem) ?? VideoSizeComboBox.Text)[(((string)VideoSizeComboBox.SelectedItem ?? VideoSizeComboBox.Text).IndexOf('x') + 1)..];
+            string width = ((string)VideoSizeComboBox.SelectedItem)[0..((string)VideoSizeComboBox.SelectedItem).IndexOf('x')],
+                height = ((string)VideoSizeComboBox.SelectedItem)[(((string)VideoSizeComboBox.SelectedItem).IndexOf('x') + 1)..];
             Directory.CreateDirectory("temp");
             File.Copy(inputFile, "video.mp4");
             using (Process process = new())
@@ -114,8 +115,9 @@ namespace THP_Conveter_CS.GUI
                 process.Start();
                 process.WaitForExit();
             }
-            using (var process = new Process())
+            if (UseAudioCheckBox.Checked)
             {
+                using var process = new Process();
                 process.StartInfo = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
@@ -132,7 +134,7 @@ namespace THP_Conveter_CS.GUI
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d {name}"
+                    Arguments = UseAudioCheckBox.Checked ? $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d {name}" : $"/c thpconv.exe -j temp/*.jpg -r {rate} -d {name}"
                 };
                 process.Start();
                 process.WaitForExit();

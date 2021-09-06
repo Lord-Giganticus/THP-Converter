@@ -35,6 +35,7 @@ namespace THP_Conveter_CS.GUI
             this.label1 = new System.Windows.Forms.Label();
             this.VideoSizeComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.UseAudioCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -59,7 +60,7 @@ namespace THP_Conveter_CS.GUI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(460, 139);
+            this.textBox1.Location = new System.Drawing.Point(468, 114);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "29.97";
             this.textBox1.Size = new System.Drawing.Size(173, 23);
@@ -68,7 +69,7 @@ namespace THP_Conveter_CS.GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(463, 121);
+            this.label1.Location = new System.Drawing.Point(471, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 15);
             this.label1.TabIndex = 3;
@@ -76,8 +77,10 @@ namespace THP_Conveter_CS.GUI
             // 
             // VideoSizeComboBox
             // 
+            this.VideoSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VideoSizeComboBox.FormattingEnabled = true;
             this.VideoSizeComboBox.Items.AddRange(new object[] {
+            "640x368",
             "336x528",
             "672x752",
             "496x240",
@@ -90,20 +93,32 @@ namespace THP_Conveter_CS.GUI
             "256x192",
             "608x464",
             "512x192"});
-            this.VideoSizeComboBox.Location = new System.Drawing.Point(485, 95);
+            this.VideoSizeComboBox.Location = new System.Drawing.Point(493, 70);
+            this.VideoSizeComboBox.MaxDropDownItems = 13;
             this.VideoSizeComboBox.Name = "VideoSizeComboBox";
             this.VideoSizeComboBox.Size = new System.Drawing.Size(121, 23);
             this.VideoSizeComboBox.TabIndex = 6;
-            this.VideoSizeComboBox.Text = "640x368";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(511, 77);
+            this.label3.Location = new System.Drawing.Point(520, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Video Size";
+            // 
+            // UseAudioCheckBox
+            // 
+            this.UseAudioCheckBox.AutoSize = true;
+            this.UseAudioCheckBox.Checked = true;
+            this.UseAudioCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UseAudioCheckBox.Location = new System.Drawing.Point(506, 143);
+            this.UseAudioCheckBox.Name = "UseAudioCheckBox";
+            this.UseAudioCheckBox.Size = new System.Drawing.Size(85, 19);
+            this.UseAudioCheckBox.TabIndex = 8;
+            this.UseAudioCheckBox.Text = "Use Audio?";
+            this.UseAudioCheckBox.UseVisualStyleBackColor = true;
             // 
             // MP4
             // 
@@ -111,6 +126,7 @@ namespace THP_Conveter_CS.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UseAudioCheckBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.VideoSizeComboBox);
             this.Controls.Add(this.label1);
@@ -134,5 +150,6 @@ namespace THP_Conveter_CS.GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox VideoSizeComboBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox UseAudioCheckBox;
     }
 }
