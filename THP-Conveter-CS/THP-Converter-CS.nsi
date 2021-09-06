@@ -28,5 +28,8 @@ Section "" ;No components page, name is not important
   
   ; Put file there
   File "THP-Converter-CS.exe"
+  File /nonfatal "THP-Converter-CS.dll"
+  File /nonfatal "THP-Converter-CS.runtimeconfig.json"
+  File /nonfatal "FFmpeg.NET.dll"
   
 SectionEnd ; end the section
