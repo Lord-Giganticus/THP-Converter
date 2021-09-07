@@ -346,3 +346,5 @@ healthchecksdb
 dist/
 build/
 *.spec
+/THP-Converter-CS-CLI/Resources/THPConv.exe
+/THP-Converter-CS-CLI/Resources/dsptool.dll
