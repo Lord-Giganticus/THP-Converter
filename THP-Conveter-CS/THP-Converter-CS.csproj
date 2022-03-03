@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>THP_Conveter_CS</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xFFmpeg.NET" Version="5.0.1" />
+    <PackageReference Include="xFFmpeg.NET" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>

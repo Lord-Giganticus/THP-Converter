@@ -91,8 +91,8 @@ namespace THP_Conveter_CS.GUI
             File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
             File.WriteAllBytes("mplayer.exe", Properties.Resources.mplayer);
             Classes.Manager manager = new();
-            manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
-            manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
+            Classes.Manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
+            Classes.Manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
             string scaleParameter = "";
             if ((string)VideoSizeComboBox.SelectedItem != "Original")
             {

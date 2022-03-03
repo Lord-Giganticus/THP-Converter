@@ -12,19 +12,19 @@ namespace THP_Conveter_CS
         }
         private void AboutMenu_Click(object sender, EventArgs e)
         {
-            GUI.AboutBox aboutBox = new GUI.AboutBox();
+            GUI.AboutBox aboutBox = new();
             aboutBox.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GUI.THP THP = new GUI.THP();
+            GUI.THP THP = new();
             THP.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GUI.MP4 MP4 = new GUI.MP4();
+            GUI.MP4 MP4 = new();
             MP4.ShowDialog();
         }
     }

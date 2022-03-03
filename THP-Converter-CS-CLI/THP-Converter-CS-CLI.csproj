@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>THP_Converter_CS_CLI</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xFFmpeg.NET" Version="6.0.0" />
+    <PackageReference Include="xFFmpeg.NET" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +23,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="THP-Converter-CS-CLI.nsi">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

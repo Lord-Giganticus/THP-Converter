@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Threading;
 using FFmpeg.NET;
 using static THP_Converter_CS_CLI.Properties.Resources;
 
@@ -25,7 +26,7 @@ namespace THP_Converter_CS_CLI.Classes
             var engine = new Engine("ffmpeg.exe");
             var infile = new InputFile(InFile);
             var outfile = new OutputFile(OutFile);
-            var r = await engine.ConvertAsync(infile, outfile);
+            var r = await engine.ConvertAsync(infile, outfile, CancellationToken.None);
             File.Delete("ffmpeg.exe");
             return r;
         }

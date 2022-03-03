@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using FFmpeg.NET;
+using System.Threading;
 
 namespace THP_Conveter_CS.GUI
 {
@@ -17,7 +18,7 @@ namespace THP_Conveter_CS.GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog
+            OpenFileDialog open = new()
             {
                 Filter = "thp file (*.thp)|*.thp|All files (*.*)|*.*",
                 FilterIndex = 1,
@@ -40,7 +41,7 @@ namespace THP_Conveter_CS.GUI
         private async void button2_Click(object sender, EventArgs e)
         {
             Complete += THP_Complete;
-            SaveFileDialog save = new SaveFileDialog
+            SaveFileDialog save = new()
             {
                 Filter = "mp4 file (*.mp4)|*.mp4|All files (*.*)|*.*",
                 FilterIndex = 1,
@@ -54,13 +55,13 @@ namespace THP_Conveter_CS.GUI
             {
                 outfile = save.FileName;
             }
-            var inputFile = new MediaFile(Properties.Settings.Default.thp_video);
-            var outFile = new MediaFile(outfile);
+            var inputFile = new InputFile(Properties.Settings.Default.thp_video);
+            var outFile = new OutputFile(outfile);
             if (!File.Exists(Properties.Settings.Default.ffmpeg_path)) {
                 File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
             }
             var ffmpeg = new Engine(Properties.Settings.Default.ffmpeg_path);
-            await ffmpeg.ConvertAsync(inputFile, outFile);
+            await ffmpeg.ConvertAsync(inputFile, outFile, CancellationToken.None);
             Complete?.Invoke();
             button2.Hide();
             File.Delete("ffmpeg.exe");
