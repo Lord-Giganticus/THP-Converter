@@ -12,7 +12,7 @@ def main():
         raise FileNotFoundError
     if os.path.isfile(out_file) == True:
         raise FileExistsError
-    os.system('cmd /c ffmpeg -i "'+file+'" -r '+str(rate)+' frame%03d.jpg')
+    os.system('cmd /c ffmpeg -i "'+file+'" -r '+str(rate)+' -qscale:v 2 frame%05d.jpg')
     os.system('cmd /c thpconv -j *.jpg -d "'+out_file+'"')
     os.system('cmd /c del /f *.jpg')
     print("Complete.")

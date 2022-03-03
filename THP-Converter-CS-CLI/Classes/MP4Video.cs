@@ -50,7 +50,7 @@ namespace THP_Converter_CS_CLI.Classes
                 UseShellExecute = false,
                 WindowStyle = ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
-                Arguments = $"/c ffmpeg.exe -i video.mp4 -r {Rate} -vf scale={Width}:{Height} temp\\frame%03d.jpg"
+                Arguments = $"/c ffmpeg.exe -i video.mp4 -r {Rate} -vf scale={Width}:{Height} -qscale:v 2 temp\\frame%05d.jpg"
             }).WaitForExit();
             File.Delete("ffmpeg.exe");
             if (UseAudio)
@@ -71,7 +71,7 @@ namespace THP_Converter_CS_CLI.Classes
                 UseShellExecute = false,
                 WindowStyle = ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
-                Arguments = UseAudio ? $"/c thpconv.exe -j temp/*.jpg -r {Rate} -s temp.wav -d output.thp" : $"/c thpconv.exe -j temp/*.jpg -r {Rate} -d output.thp" 
+                Arguments = $"/c thpconv.exe -j temp/*.jpg -r {Rate}{(UseAudio ? " - s temp.wav" : "")} -d output.thp"
             }).WaitForExit();
             File.Move("output.thp", OutFile.FullName);
             Console.WriteLine($"Converted {InFile.Name} to {OutFile.Name}");

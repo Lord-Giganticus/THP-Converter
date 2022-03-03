@@ -40,9 +40,10 @@ namespace THP_Conveter_CS.GUI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(126, 168);
+            this.button1.Location = new System.Drawing.Point(180, 280);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(246, 110);
+            this.button1.Size = new System.Drawing.Size(351, 183);
             this.button1.TabIndex = 0;
             this.button1.Text = "Search for a mp4 file";
             this.button1.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@ namespace THP_Conveter_CS.GUI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(427, 168);
+            this.button2.Location = new System.Drawing.Point(610, 280);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(246, 110);
+            this.button2.Size = new System.Drawing.Size(351, 183);
             this.button2.TabIndex = 1;
             this.button2.Text = "Save the new thp file";
             this.button2.UseVisualStyleBackColor = true;
@@ -60,18 +62,20 @@ namespace THP_Conveter_CS.GUI
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(468, 114);
+            this.textBox1.Location = new System.Drawing.Point(669, 190);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "29.97";
-            this.textBox1.Size = new System.Drawing.Size(173, 23);
+            this.textBox1.Size = new System.Drawing.Size(245, 31);
             this.textBox1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(471, 96);
+            this.label1.Location = new System.Drawing.Point(673, 160);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 15);
+            this.label1.Size = new System.Drawing.Size(259, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "The frame rate of the thp video";
             // 
@@ -80,6 +84,7 @@ namespace THP_Conveter_CS.GUI
             this.VideoSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.VideoSizeComboBox.FormattingEnabled = true;
             this.VideoSizeComboBox.Items.AddRange(new object[] {
+            "Original",
             "640x368",
             "336x528",
             "672x752",
@@ -93,18 +98,20 @@ namespace THP_Conveter_CS.GUI
             "256x192",
             "608x464",
             "512x192"});
-            this.VideoSizeComboBox.Location = new System.Drawing.Point(493, 70);
+            this.VideoSizeComboBox.Location = new System.Drawing.Point(704, 117);
+            this.VideoSizeComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VideoSizeComboBox.MaxDropDownItems = 13;
             this.VideoSizeComboBox.Name = "VideoSizeComboBox";
-            this.VideoSizeComboBox.Size = new System.Drawing.Size(121, 23);
+            this.VideoSizeComboBox.Size = new System.Drawing.Size(171, 33);
             this.VideoSizeComboBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(520, 52);
+            this.label3.Location = new System.Drawing.Point(743, 87);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.Size = new System.Drawing.Size(94, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Video Size";
             // 
@@ -113,19 +120,20 @@ namespace THP_Conveter_CS.GUI
             this.UseAudioCheckBox.AutoSize = true;
             this.UseAudioCheckBox.Checked = true;
             this.UseAudioCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UseAudioCheckBox.Location = new System.Drawing.Point(506, 143);
+            this.UseAudioCheckBox.Location = new System.Drawing.Point(723, 238);
+            this.UseAudioCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UseAudioCheckBox.Name = "UseAudioCheckBox";
-            this.UseAudioCheckBox.Size = new System.Drawing.Size(85, 19);
+            this.UseAudioCheckBox.Size = new System.Drawing.Size(128, 29);
             this.UseAudioCheckBox.TabIndex = 8;
             this.UseAudioCheckBox.Text = "Use Audio?";
             this.UseAudioCheckBox.UseVisualStyleBackColor = true;
             // 
             // MP4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.UseAudioCheckBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.VideoSizeComboBox);
@@ -133,6 +141,7 @@ namespace THP_Conveter_CS.GUI
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "MP4";
             this.ShowIcon = false;

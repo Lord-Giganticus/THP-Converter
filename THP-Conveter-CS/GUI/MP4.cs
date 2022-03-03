@@ -98,8 +98,12 @@ namespace THP_Conveter_CS.GUI
             Classes.Manager manager = new();
             manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
             manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
-            string width = ((string)VideoSizeComboBox.SelectedItem)[0..((string)VideoSizeComboBox.SelectedItem).IndexOf('x')],
-                height = ((string)VideoSizeComboBox.SelectedItem)[(((string)VideoSizeComboBox.SelectedItem).IndexOf('x') + 1)..];
+            string scaleParameter = "";
+            if ((string)VideoSizeComboBox.SelectedItem != "Original")
+            {
+                scaleParameter = $" -vf scale={((string)VideoSizeComboBox.SelectedItem)[0..((string)VideoSizeComboBox.SelectedItem).IndexOf('x')]}:"
+                    + ((string)VideoSizeComboBox.SelectedItem)[(((string)VideoSizeComboBox.SelectedItem).IndexOf('x') + 1)..];
+            }
             Directory.CreateDirectory("temp");
             File.Copy(inputFile, "video.mp4");
             using (Process process = new())
@@ -110,7 +114,7 @@ namespace THP_Conveter_CS.GUI
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = $"/c ffmpeg.exe -i video.mp4 -r {rate} -vf scale={width}:{height} temp\\frame%03d.jpg"
+                    Arguments = $"/c ffmpeg.exe -i video.mp4 -r {rate}{scaleParameter} -qscale:v 2 temp\\frame%05d.jpg"
                 };
                 process.StartInfo = startInfo;
                 process.Start();
@@ -135,7 +139,7 @@ namespace THP_Conveter_CS.GUI
                     UseShellExecute = false,
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = UseAudioCheckBox.Checked ? $"/c thpconv.exe -j temp/*.jpg -r {rate} -s temp.wav -d output.thp" : $"/c thpconv.exe -j temp/*.jpg -r {rate} -d output.thp"
+                    Arguments = $"/c thpconv.exe -j temp/*.jpg -r {rate}{(UseAudioCheckBox.Checked ? " -s temp.wav" : "")} -d output.thp"
                 };
                 process.Start();
                 process.WaitForExit();
