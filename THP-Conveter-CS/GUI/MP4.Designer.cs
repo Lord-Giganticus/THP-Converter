@@ -36,6 +36,7 @@ namespace THP_Conveter_CS.GUI
             this.VideoSizeComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UseAudioCheckBox = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -98,7 +99,7 @@ namespace THP_Conveter_CS.GUI
             "256x192",
             "608x464",
             "512x192"});
-            this.VideoSizeComboBox.Location = new System.Drawing.Point(704, 117);
+            this.VideoSizeComboBox.Location = new System.Drawing.Point(704, 79);
             this.VideoSizeComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VideoSizeComboBox.MaxDropDownItems = 13;
             this.VideoSizeComboBox.Name = "VideoSizeComboBox";
@@ -108,7 +109,7 @@ namespace THP_Conveter_CS.GUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(743, 87);
+            this.label3.Location = new System.Drawing.Point(743, 49);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 25);
@@ -128,12 +129,23 @@ namespace THP_Conveter_CS.GUI
             this.UseAudioCheckBox.Text = "Use Audio?";
             this.UseAudioCheckBox.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(541, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(501, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Note: If using Original, Height/Width must be multiples of 16.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // MP4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.UseAudioCheckBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.VideoSizeComboBox);
@@ -160,5 +172,6 @@ namespace THP_Conveter_CS.GUI
         private System.Windows.Forms.ComboBox VideoSizeComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox UseAudioCheckBox;
+        private System.Windows.Forms.Label label2;
     }
 }

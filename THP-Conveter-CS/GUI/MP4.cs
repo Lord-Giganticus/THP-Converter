@@ -20,6 +20,7 @@ namespace THP_Conveter_CS.GUI
         {
             InitializeComponent();
             label1.Hide();
+            label2.Hide();
             button2.Hide();
             textBox1.Hide();
             label3.Hide();
@@ -43,6 +44,7 @@ namespace THP_Conveter_CS.GUI
                 Properties.Settings.Default.mp4_video = open.FileName;
                 Properties.Settings.Default.Save();
                 label1.Show();
+                label2.Show();
                 button2.Show();
                 textBox1.Show();
                 label3.Show();
