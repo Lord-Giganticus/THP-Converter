@@ -71,7 +71,7 @@ namespace THP_Converter_CS_CLI.Classes
                 UseShellExecute = false,
                 WindowStyle = ProcessWindowStyle.Hidden,
                 FileName = "cmd.exe",
-                Arguments = $"/c thpconv.exe -j temp/*.jpg -r {Rate}{(UseAudio ? " - s temp.wav" : "")} -d output.thp"
+                Arguments = $"/c thpconv.exe -j temp/*.jpg -r {Rate}{(UseAudio ? " -s temp.wav" : "")} -d output.thp"
             }).WaitForExit();
             File.Move("output.thp", OutFile.FullName);
             Console.WriteLine($"Converted {InFile.Name} to {OutFile.Name}");
