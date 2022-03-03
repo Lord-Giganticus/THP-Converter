@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Diagnostics;
@@ -128,7 +121,7 @@ namespace THP_Conveter_CS.GUI
                 process.StartInfo = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
-                    Arguments = "/c mplayer.exe -ao pcm:file=temp.wav video.mp4"
+                    Arguments = "/c mplayer.exe -vo null -ao pcm:file=temp.wav video.mp4"
                 };
                 process.Start();
                 process.WaitForExit();

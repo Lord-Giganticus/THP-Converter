@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using THP_Converter_CS_CLI.Classes;
 
 namespace THP_Converter_CS_CLI

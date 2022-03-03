@@ -1,7 +1,6 @@
 ﻿// From https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-copy-directories
 using System;
 using System.IO;
-using System.Reflection;
 
 namespace THP_Conveter_CS.Classes
 {

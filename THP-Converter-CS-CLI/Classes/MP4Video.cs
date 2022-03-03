@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using static THP_Converter_CS_CLI.Properties.Resources;
 
 namespace THP_Converter_CS_CLI.Classes
@@ -59,7 +55,7 @@ namespace THP_Converter_CS_CLI.Classes
                 Process.Start(startInfo: new()
                 {
                     FileName = "cmd.exe",
-                    Arguments = "/c mplayer.exe -ao pcm:file=temp.wav video.mp4"
+                    Arguments = "/c mplayer.exe -vo null -ao pcm:file=temp.wav video.mp4"
                 }).WaitForExit();
                 File.Delete("mplayer.exe");
             }
