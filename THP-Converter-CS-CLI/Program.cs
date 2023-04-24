@@ -18,7 +18,7 @@ namespace THP_Converter_CS_CLI
 
         static FileInfo InFile { get; set; }
 
-        static void Main(string[] args)
+        async static void Main(string[] args)
         {
             for (int i = 0; i < args.Length; i++)
                 switch (args[i])
@@ -70,7 +70,7 @@ namespace THP_Converter_CS_CLI
             if (InFile.Extension is ".thp")
             {
                 if (OutFile.Extension is not ".mp4") throw new Exception("Outfile needs to be a mp4 if the Inputfile is a thp.");
-                new THP(InFile, OutFile).Convert().GetAwaiter().GetResult();
+                await new THP(InFile, OutFile).Convert();
                 Console.WriteLine($"Converted {InFile.Name} to {OutFile.Name}.");
             } else if (InFile.Extension is ".mp4")
             {

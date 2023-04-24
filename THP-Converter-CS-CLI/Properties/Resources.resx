@@ -124,9 +124,6 @@
   <data name="ffmpeg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ffmpeg.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mplayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mplayer.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="THPConv" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\THPConv.exe;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

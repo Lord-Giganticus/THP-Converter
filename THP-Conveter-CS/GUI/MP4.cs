@@ -89,7 +89,6 @@ namespace THP_Conveter_CS.GUI
             File.Delete(outfile);
             string inputFile = Properties.Settings.Default.mp4_video;
             File.WriteAllBytes("ffmpeg.exe", Properties.Resources.ffmpeg);
-            File.WriteAllBytes("mplayer.exe", Properties.Resources.mplayer);
             Classes.Manager manager = new();
             Classes.Manager.ExtractResource("THPConv.exe", Properties.Resources.THPConv);
             Classes.Manager.ExtractResource("dsptool.dll", Properties.Resources.dsptool);
@@ -120,8 +119,11 @@ namespace THP_Conveter_CS.GUI
                 using var process = new Process();
                 process.StartInfo = new ProcessStartInfo
                 {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = "/c mplayer.exe -vo null -ao pcm:file=temp.wav video.mp4"
+                    Arguments = "/c ffmpeg.exe -i video.mp4 -acodec pcm_s16le -ac 2 -ar 32000 temp.wav"
                 };
                 process.Start();
                 process.WaitForExit();
@@ -149,7 +151,6 @@ namespace THP_Conveter_CS.GUI
             File.Delete("THPConv.exe");
             File.Delete("dsptool.dll");
             File.Delete("ffmpeg.exe");
-            File.Delete("mplayer.exe");
             Complete?.Invoke();
             label1.Hide();
             textBox1.Hide();

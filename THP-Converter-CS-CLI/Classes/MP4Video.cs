@@ -51,13 +51,16 @@ namespace THP_Converter_CS_CLI.Classes
             File.Delete("ffmpeg.exe");
             if (UseAudio)
             {
-                File.WriteAllBytes("mplayer.exe", mplayer);
+                File.WriteAllBytes("ffmpeg.exe", ffmpeg);
                 Process.Start(startInfo: new()
                 {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = "cmd.exe",
-                    Arguments = "/c mplayer.exe -vo null -ao pcm:file=temp.wav video.mp4"
+                    Arguments = "/c ffmpeg.exe -i video.mp4 -acodec pcm_s16le -ac 2 -ar 32000 temp.wav"
                 }).WaitForExit();
-                File.Delete("mplayer.exe");
+                File.Delete("ffmpeg.exe");
             }
             File.WriteAllBytes("THPConv.exe", THPConv);
             File.WriteAllBytes("dsptool.dll", dsptool);
@@ -69,7 +72,10 @@ namespace THP_Converter_CS_CLI.Classes
                 FileName = "cmd.exe",
                 Arguments = $"/c thpconv.exe -j temp/*.jpg -r {Rate}{(UseAudio ? " -s temp.wav" : "")} -d output.thp"
             }).WaitForExit();
+            File.Delete("THPConv.exe");
+            File.Delete("dsptool.dll");
             File.Move("output.thp", OutFile.FullName);
+            File.Move("video.mp4", InFile.FullName);
             Console.WriteLine($"Converted {InFile.Name} to {OutFile.Name}");
         }
     }
