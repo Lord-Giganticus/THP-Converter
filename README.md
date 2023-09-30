@@ -4,12 +4,12 @@
 
 Python scripts to convert folders with wii/gc era thp videos into mp4 files and vice versa.
 Plus a now working C# version!
-I haven't seen any good coverters for this file type so I wrote one.
+I haven't seen any good converters for this file type so I wrote one.
 
 # Requirements for compiling the C# project
 - .NET 6.0 runtime [(link to runtime)](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
 - `THPConv.exe` and `dsptool.dll` in the `THP-Conveter-CS` folder. **Due to both files being part of the RVL SDK (Wii SDK), I can not provide the links to these.** ~~May or may not be in the resources for the C# program and required to be in the folder for building~~ ;)
-# Conributing:
+# Contributing:
 Refer to [CONTRIBUTING.md](https://github.com/Lord-Giganticus/THP-Conveter/blob/master/CONTRIBUTING.md) for info.
 
 # Known issues:
